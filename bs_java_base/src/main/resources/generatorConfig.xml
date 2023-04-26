@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="MySQLTables" targetRuntime="MyBatis3">
+        <!-- mvn mybatis-generator:generate
+        配置数据库位置  ，配置虚拟机上的mysql ip地址；不采用安全协议连接，否则无法逆向生成-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/bs_book2?useSSL=false"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- javaBean生成在哪里 -->
+        <javaModelGenerator
+                targetPackage="com.bs.glr.bean"
+                targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- sqlMap  sql映射文件（xml mapper文件） -->
+        <sqlMapGenerator targetPackage="mybatis.mapper"
+                         targetProject=".\src\main\resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!--  javaClient：java接口生成的地方 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.bs.glr.mapper"
+                             targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+    <!--<table schema="" tableName="bs_user"></table>-->
+        <!--<table schema="" tableName="bs_token"></table>-->
+        <!--<table schema="" tableName="bs_book_sort"></table>-->
+        <!--<table schema="" tableName="bs_book_address"></table>-->
+        <!--<table schema="" tableName="bs_book_info"></table>-->
+        <!--<table schema="" tableName="bs_borrow"></table>-->
+        <table schema="" tableName="bs_book_info"></table>
+
+        <!--<table schema="" tableName="d_device"></table>-->
+        <!--<table schema="" tableName="d_scene"></table>-->
+        <!--<table schema="" tableName="d_up_down"></table>-->
+    </context>
+</generatorConfiguration>
